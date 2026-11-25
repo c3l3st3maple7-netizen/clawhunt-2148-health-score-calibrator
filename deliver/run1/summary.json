@@ -1,0 +1,59 @@
+{
+  "churn": {
+    "annual_target": 0.12,
+    "churners": 36,
+    "intercept_b0": -5.6454151816,
+    "label_sampling": "bernoulli",
+    "model_expected_annual": 0.12,
+    "monthly_probability_max": 0.4173521219,
+    "monthly_probability_mean": 0.0122166918,
+    "monthly_probability_min": 2.20453e-05,
+    "realised_label_rate": 0.12,
+    "window_end": "2025-12",
+    "window_start": "2025-01"
+  },
+  "dataset": {
+    "companies": 300,
+    "first_month": "2024-01",
+    "last_month": "2025-12",
+    "months": 24,
+    "sites": 3
+  },
+  "files": {
+    "churn_label.csv": {
+      "rows": 300,
+      "sha256": "35b661a72191edaa83019ae58062a058ec5e9aed35d3dbf1a48676e7c707327e"
+    },
+    "ground_truth.json": {
+      "sha256": "b7005da2dc54bccff2ab320f3f9502b6e7b80a48d89cf4870fc72e6110f1c012"
+    },
+    "health_snapshot.csv": {
+      "rows": 7200,
+      "sha256": "1f3084ae30a4a2fd364dd030fa77682e5da54717bc07bb66f7ea6c7ee063eb09"
+    }
+  },
+  "generator": "calib.generate_synthetic_health",
+  "missing_data": {
+    "consecutive_months": 3,
+    "null_rows": 300,
+    "periods": [
+      "2025-01",
+      "2025-02",
+      "2025-03"
+    ],
+    "site_code": "SYN-SITE-03"
+  },
+  "rows": {
+    "churn_label": 300,
+    "health_snapshot": 7200
+  },
+  "schema_version": "1.0",
+  "scores": {
+    "health_max": 92.12,
+    "health_min": 10.58,
+    "max": 95.0,
+    "min": 5.0
+  },
+  "seed": 20260158,
+  "version": "1.0.0"
+}

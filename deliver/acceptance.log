@@ -1,0 +1,20 @@
+AC1  same seed -> identical SHA-256 for every output file
+     health_snapshot.csv    identical  1f3084ae30a4a2fd364dd030fa77682e5da54717bc07bb66f7ea6c7ee063eb09
+     churn_label.csv        identical  35b661a72191edaa83019ae58062a058ec5e9aed35d3dbf1a48676e7c707327e
+     ground_truth.json      identical  b7005da2dc54bccff2ab320f3f9502b6e7b80a48d89cf4870fc72e6110f1c012
+     summary.json           identical  c1b432b6dca5982016f56a6deffc7f9e147d9f1b26e9392a34ce64fe1ea17072
+     => PASS
+
+AC2  annual churn rate under the default configuration
+     churners 36 / companies 300 = 12.00%   window 2025-01..2025-12 (12 months)
+     model expected annual rate 12.0000%
+     monthly probability mean 1.2217% (min 0.0022%, max 41.7352%)
+     acceptance window 10%-14% -> PASS
+
+AC3  one club's space utilisation missing for three consecutive months
+     club SYN-SITE-03 (index 2)
+     months 2025-01, 2025-02, 2025-03
+     flagged rows 300; companies 100; per-company runs [3]
+     space_raw and health_score are NULL on all flagged rows -> PASS
+
+all acceptance criteria passed

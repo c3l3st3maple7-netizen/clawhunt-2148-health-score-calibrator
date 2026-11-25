@@ -1,0 +1,93 @@
+# Default configuration — 【S6-CAL-003】 health-score calibration data generator.
+# Every value below is the default named in the task; edit and re-run to get a
+# different synthetic world. Unknown keys are rejected at load time.
+
+seed: 20260158
+out_dir: runs/default
+
+dataset:
+  companies: 300          # member companies
+  sites: 3                # clubs / sites
+  months: 24
+  start_year: 2024
+  start_month: 1
+  annual_churn_target: 0.12
+  # bernoulli: every company churns independently at its own annual probability
+  #            (the model-faithful reading of the task);
+  # exact_count: alternative that fixes the churner count at
+  #            round(target * companies) so the realised rate equals the target.
+  label_sampling: bernoulli
+
+attributes:
+  # sampled per company with these proportions (normalised at load time)
+  industry:
+    saas: 0.35
+    manufacturing: 0.25
+    professional_services: 0.22
+    retail: 0.18
+  stage:
+    seed: 0.20
+    growth: 0.50
+    mature: 0.30
+  tier:
+    basic: 0.45
+    plus: 0.35
+    enterprise: 0.20
+
+latent_activity:
+  phi: 0.85               # AR(1) persistence of the latent activity
+  innovation_sd: 0.45     # monthly Gaussian innovation
+  initial_sd: 1.0
+  seasonal_months: [1, 2] # January, February
+  seasonal_effect: -0.70  # holiday dip in activity units
+
+sub_items:
+  # raw_k = base_k + loading_k * activity + company_bias_k + N(0, noise_k), clipped at 0.
+  # company_bias_k is drawn once per company and is part of the noise structure:
+  # it keeps the five sub-items correlated through the latent activity without
+  # making them the same series, which is what lets a calibration method tell
+  # their weights apart.
+  event:
+    base: 12.0
+    loading: 3.0
+    noise_sd: 1.5
+    company_bias_sd: 0.80
+  interaction:
+    base: 8.0
+    loading: 2.2
+    noise_sd: 1.2
+    company_bias_sd: 0.80
+  resource:
+    base: 5.0
+    loading: 2.0
+    noise_sd: 1.0
+    company_bias_sd: 0.80
+  opportunity:
+    base: 3.0
+    loading: 1.2
+    noise_sd: 0.7
+    company_bias_sd: 0.80
+  space:
+    base: 20.0
+    loading: 4.0
+    noise_sd: 3.0
+    company_bias_sd: 0.80
+
+true_weights:
+  # buried in ground_truth.json; the calibration method must try to recover them
+  event: 0.55
+  interaction: 0.42
+  resource: 0.30
+  opportunity: 0.48
+  space: 0.22
+
+standardisation:
+  clip_z: 3.0
+  score_mean: 50.0
+  score_sd: 15.0
+
+missing_data:
+  # one club loses its space-utilisation data for three consecutive months
+  site_index: 2
+  start_month_index: 12
+  months: 3

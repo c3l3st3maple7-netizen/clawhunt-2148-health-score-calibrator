@@ -1,0 +1,3 @@
+# Runtime: Python 3.11+ standard library only. Nothing to install.
+# Tests only:
+pytest>=8

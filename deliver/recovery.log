@@ -1,0 +1,11 @@
+run            deliver/run1
+true weights   {'event': 0.55, 'interaction': 0.42, 'resource': 0.3, 'opportunity': 0.48, 'space': 0.22}
+true intercept -5.6454  (b0 of the monthly logit)
+
+hazard  weights {'event': 0.4617, 'interaction': 0.4822, 'resource': 0.0027, 'opportunity': 0.8231, 'space': 0.0258}
+        MAE 0.197  max 0.343  pearson 0.81  rank 0.60  intercept -5.48
+annual  weights {'event': 0.6311, 'interaction': -0.0272, 'resource': -0.0538, 'opportunity': 1.2149, 'space': 0.0661}
+        MAE 0.354  max 0.735  pearson 0.67  rank 0.60  intercept -2.53
+
+The discrete-time hazard fit is the estimator that matches the generator;
+the annual fit is shown to document how much averaging the months biases it.

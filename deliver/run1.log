@@ -1,0 +1,21 @@
+calib synthetic health generator
+  output            deliver/run1
+  seed              20260158
+  dataset           300 companies x 3 sites x 24 months (2024-01..2025-12)
+
+files
+  health_snapshot.csv    7200 rows  sha256 1f3084ae30a4a2fd364dd030fa77682e5da54717bc07bb66f7ea6c7ee063eb09
+  churn_label.csv         300 rows  sha256 35b661a72191edaa83019ae58062a058ec5e9aed35d3dbf1a48676e7c707327e
+  ground_truth.json           sha256 b7005da2dc54bccff2ab320f3f9502b6e7b80a48d89cf4870fc72e6110f1c012
+
+churn calibration
+  annual target               12.00%   [AC2 window 10%-14%]
+  model expected annual     12.0000%
+  realised label rate         12.00%   (36/300 companies, bernoulli)
+  monthly probability        1.2217% mean  (0.0022% .. 41.7352%)
+  solved intercept b0       -5.6454
+
+missing data
+  SYN-SITE-03 space utilisation missing for 3 consecutive months (2025-01..2025-03): 300 null rows
+
+ground truth: deliver/run1/ground_truth.json

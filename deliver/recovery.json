@@ -1,0 +1,64 @@
+{
+  "annual": {
+    "absolute_error": {
+      "event": 0.0811,
+      "interaction": 0.4472,
+      "opportunity": 0.7349,
+      "resource": 0.3538,
+      "space": 0.1539
+    },
+    "companies": 300,
+    "intercept": -2.5302,
+    "max_absolute_error": 0.7349,
+    "mean_absolute_error": 0.3542,
+    "pearson": 0.6651,
+    "rank_spearman": 0.6,
+    "recovered": {
+      "event": 0.6311,
+      "interaction": -0.0272,
+      "opportunity": 1.2149,
+      "resource": -0.0538,
+      "space": 0.0661
+    },
+    "true": {
+      "event": 0.55,
+      "interaction": 0.42,
+      "opportunity": 0.48,
+      "resource": 0.3,
+      "space": 0.22
+    }
+  },
+  "hazard": {
+    "absolute_error": {
+      "event": 0.0883,
+      "interaction": 0.0622,
+      "opportunity": 0.3431,
+      "resource": 0.2973,
+      "space": 0.1942
+    },
+    "events": 36,
+    "intercept": -5.4832,
+    "max_absolute_error": 0.3431,
+    "mean_absolute_error": 0.197,
+    "pearson": 0.8136,
+    "rank_spearman": 0.6,
+    "recovered": {
+      "event": 0.4617,
+      "interaction": 0.4822,
+      "opportunity": 0.8231,
+      "resource": 0.0027,
+      "space": 0.0258
+    },
+    "rows": 3137,
+    "true": {
+      "event": 0.55,
+      "interaction": 0.42,
+      "opportunity": 0.48,
+      "resource": 0.3,
+      "space": 0.22
+    }
+  },
+  "run_dir": "deliver/run1",
+  "seed": 20260158,
+  "true_intercept": -5.6454
+}
