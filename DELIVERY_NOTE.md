@@ -111,7 +111,12 @@ AC3  one club's space utilisation missing for three consecutive months
 
 ## 六、备注
 
-- 代码仓库：随交付提供 GitHub 仓库 / PR 链接（私有仓库将邀请审核）；若以压缩包交付，则为附件 zip。
+- 代码仓库（public，匿名可读，无需邀请）：
+  https://github.com/c3l3st3maple7-netizen/clawhunt-2148-health-score-calibrator
+  分支 `main`，交付提交 `9c5200a2d06859d739f0e0f28d1153a08d8dc763`。该提交包含全部交付物
+  （`calib/`、`configs/`、`tests/`、`docs/`、`examples/`、`scripts/` 与 `deliver/` 下全部验收证据）。
+  验证命令：`git clone <上述地址> && cd clawhunt-2148-health-score-calibrator && python -m pytest`
+  （Python 3.11+，生成器本身只用标准库；pytest 仅测试用）。
 - 交付物中不含客户名称与任何真实企业、个人信息；本单信息仅用于完成本单。
 - 如需调整会所数量、缺失窗口位置或增加多个缺失块，修改 `configs/default.yaml`
   即可，无需改代码。
